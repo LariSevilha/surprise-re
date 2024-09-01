@@ -35,6 +35,15 @@
             color: white;
         }
 
+        .text-card::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff0000; /* Linha vermelha abaixo do texto */
+            margin: 10px auto;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -52,8 +61,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.2s ease; /* Reduzido o tempo da transição para 0.2s */
-            border-bottom: 10px solid white;
+            transition: transform 0.2s ease;
+            border-bottom: 10px solid red; /* Borda vermelha inferior */
         }
 
         .gallery-item:hover img {
@@ -78,7 +87,7 @@
         }
 
         .back-button-container a {
-            background-color: rgb(14, 5, 133);
+            background-color: #ff0000; /* Botão vermelho */
             color: white;
             font-size: 1rem;
             padding: 10px 20px;
@@ -91,7 +100,7 @@
         }
 
         .back-button-container a:hover {
-            background-color: rgb(9, 3, 96);
+            background-color: #cc0000; /* Vermelho mais escuro no hover */
         }
 
         @media (max-width: 768px) {
@@ -102,19 +111,23 @@
             .gallery-item .caption {
                 font-size: 12px;
             }
+            .text-nav{
+              text-align: justify;
+           }
         }
 
         /* Ajuste para garantir que as setas de navegação no Lightbox fiquem visíveis */
         .lightbox-arrow {
             z-index: 10000;
         }
+        
     </style>
 
     <script>
         lightbox.option({
-            'resizeDuration': 200, // Duração da animação ao redimensionar a lightbox
-            'fadeDuration': 200, // Duração da transição ao passar para a próxima imagem
-            'wrapAround': true // Permite que a galeria circule continuamente
+            'resizeDuration': 200,
+            'fadeDuration': 200,
+            'wrapAround': true
         });
     </script>
 </head>
@@ -122,13 +135,13 @@
 <body>
     <div class="container">
         <div class="text-card">
-            <p>Essa é a nossa galeria de fotos, vou anexar todas, pra que sempre tenhamos guardadas na 'nuvem' rsrs</p>
+            <p class="text-nav">Essa é a nossa galeria de fotos, vou anexar todas, pra que sempre tenhamos guardadas na 'nuvem' rsrs</p>
         </div>
         <div class="gallery">
             <div class="gallery-item">
                 <a href="img/1.jpeg" data-lightbox="gallery" data-title="Momento 1">
                     <img src="img/1.jpeg">
-                </a> 
+                </a>
             </div>
             <!-- Repita este bloco para as outras imagens -->
             <script>
@@ -136,8 +149,8 @@
                     document.write(`
                         <div class="gallery-item">
                             <a href="img/${i}.jpeg" data-lightbox="gallery" data-title="Momento ${i}">
-                                <img src="img/${i}.jpeg"  >
-                            </a> 
+                                <img src="img/${i}.jpeg">
+                            </a>
                         </div>
                     `);
                 }
