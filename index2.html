@@ -95,9 +95,18 @@
         }
 
         @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .gallery-item .caption {
                 font-size: 12px;
             }
+        }
+
+        /* Ajuste para garantir que as setas de navegação no Lightbox fiquem visíveis */
+        .lightbox-arrow {
+            z-index: 10000;
         }
     </style>
 </head>
@@ -105,7 +114,9 @@
 <body>
     <div class="container">
         <div class="text-card">
-            <p>Essas fotos representam momentos preciosos que tivemos juntas.<br><br> Cada uma delas é um lembrete de como você é especial para mim. Assim como a lua ilumina a noite, você ilumina minha vida. <strong>Eu te amo!</strong></p>
+            <p>Essas fotos representam momentos preciosos que tivemos juntas.<br><br> Cada uma delas é um lembrete de
+                como você é especial para mim. Assim como a lua ilumina a noite, você ilumina minha vida. <strong>Eu te
+                    amo!</strong></p>
         </div>
         <div class="gallery">
             <div class="gallery-item">
@@ -116,7 +127,7 @@
             </div>
             <!-- Repita este bloco para as outras imagens -->
             <script>
-                for (let i = 2; i <= 12; i++) {
+                for (let i = 2; i <= 11; i++) {
                     document.write(`
                         <div class="gallery-item">
                             <a href="img/${i}.jpeg" data-lightbox="gallery" data-title="Momento ${i}">
@@ -129,7 +140,7 @@
             </script>
         </div>
         <div class="back-button-container">
-            <a href="index.html" class="btn btn-primary">← Voltar</a>
+            <a href="index.html" class="btn btn-primary">← ←Voltar</a>
         </div>
     </div>
 </body>
