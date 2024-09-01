@@ -52,7 +52,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease; /* Reduzido o tempo da transição para 0.2s */
             border-bottom: 10px solid white;
         }
 
@@ -109,21 +109,26 @@
             z-index: 10000;
         }
     </style>
+
+    <script>
+        lightbox.option({
+            'resizeDuration': 200, // Duração da animação ao redimensionar a lightbox
+            'fadeDuration': 200, // Duração da transição ao passar para a próxima imagem
+            'wrapAround': true // Permite que a galeria circule continuamente
+        });
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="text-card">
-            <p>Essas fotos representam momentos preciosos que tivemos juntas.<br><br> Cada uma delas é um lembrete de
-                como você é especial para mim. Assim como a lua ilumina a noite, você ilumina minha vida. <strong>Eu te
-                    amo!</strong></p>
+            <p>Essa é a nossa galeria de fotos, vou anexar todas, pra que sempre tenhamos guardadas na 'nuvem' rsrs</p>
         </div>
         <div class="gallery">
             <div class="gallery-item">
                 <a href="img/1.jpeg" data-lightbox="gallery" data-title="Momento 1">
-                    <img src="img/1.jpeg" alt="Momento 1">
-                </a>
-                <div class="caption">Momento 1</div>
+                    <img src="img/1.jpeg">
+                </a> 
             </div>
             <!-- Repita este bloco para as outras imagens -->
             <script>
@@ -131,16 +136,15 @@
                     document.write(`
                         <div class="gallery-item">
                             <a href="img/${i}.jpeg" data-lightbox="gallery" data-title="Momento ${i}">
-                                <img src="img/${i}.jpeg" alt="Momento ${i}">
-                            </a>
-                            <div class="caption">Momento ${i}</div>
+                                <img src="img/${i}.jpeg"  >
+                            </a> 
                         </div>
                     `);
                 }
             </script>
         </div>
         <div class="back-button-container">
-            <a href="index.html" class="btn btn-primary">← ←Voltar</a>
+            <a href="index.html" class="btn btn-primary">←Voltar</a>
         </div>
     </div>
 </body>

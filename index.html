@@ -1,135 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <title>Surpresa</title>
-    <style> 
+    <style>
         body {
-            background-color: #000000;  
-            overflow: hidden;
+            background-color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0; 
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
         }
 
-        .p {
-            font-size: 17px; 
-            color: white; 
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.7);
+        .navbar-custom {
+            background-color: #1c1c1c;
+            border-bottom: 2px solid #ff0000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-custom .navbar-brand {
+            color: #ff0000;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-custom .navbar-brand:hover {
+            color: #ff4d4d;
+        }
+
+        .card-custom {
+            background: linear-gradient(135deg, #000000, #333333);
+            border: 2px solid #ff0000;
+            border-radius: 20px;
             padding: 30px;
-            border-radius: 15px;
-            max-width: 800px;  
-            margin: 0 auto 20px auto;  
-            box-shadow: 0px 4px 15px rgba(106, 76, 147, 0.3);  
-            z-index: 1;
-        }
-        .btn{
-         background-color: rgb(14, 5, 133) !important;   
-         border-color: rgb(14, 5, 133);
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3);
         }
 
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            transform: rotate(-45deg);
-            animation: float 5s infinite;
-            z-index: 2; /* Traz os corações para frente */
+        .card-custom p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ffffff;
         }
 
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            border-radius: 50%;
+        .btn-custom {
+            background-color: #0000ff;
+            border-color: #0000ff;
+            color: white;
+            font-size: 1rem;
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
-        .heart::before {
-            top: -10px;
-            left: 0;
-        }
-
-        .heart::after {
-            left: 10px;
-            top: 0;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(-45deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(-45deg);
-                opacity: 0;
-            }
+        .btn-custom:hover {
+            background-color: #3333ff;
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
-            .p {
-                font-size: 15px;
-                padding: 15px;
-                max-width: 90%; 
+            .card-custom {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .card-custom p {
+                font-size: 1rem;
             }
         }
-        .card-d{ 
-            color: white;
+        .dedicatoria{
+            text-align: end;
+            font-size: 15px !important;
         }
-        .text{
-            text-align: center;
-        }
-        .card{
-            background-color: #000000 !important;   
-            border: 2px solid white; 
-            z-index: 1;  
-        }
-        .card-body{
-            padding: 0;
-        }
+        .text-card{
+            text-align: justify;       }
     </style>
 </head>
-<body> 
-    <div class="card text-center p">
-        <div class="card-header card-d">
-          Hello, gatita!
-          <hr>
+
+<body>
+    <nav class="navbar navbar-custom fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 mx-auto">Oi, grandão!</span>
         </div>
-        <div class="card-body"> 
-          <p class="card-text text"> Fiz essa homenagem para que cada vez que você entrar nessa página, você lembre de nós, lembre de todos os momentos que vivemos e lembre de que você nunca vai estar só. <br><br>
-            Você sabe onde queremos chegar, você é a minha pessoa, minha lua.<br><br>
-          <a href="index2.html" class="btn btn-primary">Continue -></a>
-        </div> 
-      </div>
-     
+    </nav>
 
-    <div id="hearts-container"></div> 
+    <div class="card card-custom">
+        <p class="text-card">Eu poderia escrever um zilhão de coisas aqui, mas você já sabe o quanto eu gosto de você. Te admiro,meu amor, meu namorado (me sinto tão feliz quando falo isso). <br> Que Deus sempre abençõe a gente! Guarde com muito carinho.</p>
 
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 5 + 3 + 's';
-            heart.style.opacity = Math.random() * 0.7 + 0.3; 
-            document.getElementById('hearts-container').appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
-
-        setInterval(createHeart, 400);
-    </script>
+        <p class="dedicatoria">Com amor, <br> sua loira!</p>
+        <a href="index2.html" class="btn btn-custom">Continue →</a>
+    </div>
 </body>
+
 </html>
